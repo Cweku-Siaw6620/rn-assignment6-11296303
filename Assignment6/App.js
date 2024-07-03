@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
-import HomeScreen from './component/HomeScreen';
-import CartScreen from './component/CartScreen';
+import HomeScreen from './components/HomeScreen';
+import CartScreen from './components/CartScreen';
 import { enableScreens } from 'react-native-screens';
 import { Ionicons } from '@expo/vector-icons';
 
