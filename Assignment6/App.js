@@ -1,16 +1,36 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as React from 'react';
+import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
+import HomeScreen from './component/HomeScreen';
+import CartScreen from './component/CartScreen';
+import { enableScreens } from 'react-native-screens';
+import { Ionicons } from '@expo/vector-icons';
+
+enableScreens();
+
+const Tabs = createBottomTabNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+    return (
+        <NavigationContainer>
+          <Tabs.Navigator>
+            <Tabs.Screen name="Home" component={HomeScreen}
+              options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="home" size={size} color={color} />
+                ),
+              }}
+            />
+            <Tabs.Screen name="Cart" component={CartScreen}
+              options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="cart" size={size} color={color} />
+                ),
+              }}
+            />
+          </Tabs.Navigator>
+        </NavigationContainer>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
